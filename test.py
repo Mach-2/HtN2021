@@ -1,6 +1,6 @@
 import numpy as np
 from author_names import *
-from citing_book import *
+from citations import *
 
 print("All info present:")
 print(citing_books(book_title="HacktheNorth 2021", publisher="Four Corners", publishing_year="2021",
