@@ -1,12 +1,6 @@
 import numpy as np
 from author_names import *
 
-<<<<<<< HEAD
-=======
-import numpy as np
-from author_names import *
-
->>>>>>> 456ef6033b8ce2a34345cc6977fe933e2893c704
 
 def citing_books(book_title=False, publisher=False, publishing_year=False,
                  DOI=False, alternate_description=False, **names):
@@ -21,7 +15,7 @@ def citing_books(book_title=False, publisher=False, publishing_year=False,
         else:
             return "Not enough information to generate a citation"
     # Date and title are missing    
-    elif publishing_year == False and book_title == False:
+    elif (publishing_year == False and book_title == False):
         if alternate_description:
             reference = authors_list + ". (n.d.). [" + alternate_description + "]. " + publisher
         else:
@@ -48,6 +42,4 @@ def citing_books(book_title=False, publisher=False, publishing_year=False,
     if DOI:
         reference = reference + " " + DOI
     return reference
-
-
 
