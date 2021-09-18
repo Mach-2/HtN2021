@@ -1,10 +1,12 @@
-"""
-A function to create citations for Books or Ebooks. Different forms of the citation will be created depending on which parameters have arguments passed to them. Each citation is compliant with APA7. 
-"""
-
 import numpy as np
 from author_names import *
 
+<<<<<<< HEAD
+=======
+import numpy as np
+from author_names import *
+
+>>>>>>> 456ef6033b8ce2a34345cc6977fe933e2893c704
 
 def citing_books(book_title=False, publisher=False, publishing_year=False,
                  DOI=False, alternate_description=False, **names):
