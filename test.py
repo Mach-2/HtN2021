@@ -10,12 +10,12 @@ print(citing_books(book_title="HacktheNorth 2021", publisher="Four Corners", pub
 print("Missing Author middle name:")
 print(citing_books(book_title="HacktheNorth 2021", publisher="Four Corners", publishing_year="2021",
                    DOI="https://github.com/Mach-2/HtN2021",
-                   alternate_description="a very neat project!", fn1="Johann", mn1="Alejandro", ln1="Maldonado"), "\n")
+                   alternate_description="a very neat project!", fn1="Johann", ln1="Maldonado"), "\n")
 
 print("Missing Author last name:")
 print(citing_books(book_title="HacktheNorth 2021", publisher="Four Corners", publishing_year="2021",
                    DOI="https://github.com/Mach-2/HtN2021",
-                   alternate_description="a very neat project!", fn1="Johann", mn1="Alejandro", ln1="Maldonado"), "\n")
+                   alternate_description="a very neat project!", fn1="Johann", mn1="Alejandro"), "\n")
 
 print("Missing book title:")
 print(citing_books(publisher="Four Corners", publishing_year="2021", DOI="https://github.com/Mach-2/HtN2021",
@@ -35,6 +35,10 @@ print(citing_books(book_title="HacktheNorth 2021", publisher="Four Corners", pub
 
 print("Missing alternate description:")
 print(citing_books(book_title="HacktheNorth 2021", publisher="Four Corners", publishing_year="2021",
+                   DOI="https://github.com/Mach-2/HtN2021", fn1="Johann", mn1="Alejandro", ln1="Maldonado"), "\n")
+
+print("Missing alternate description:")
+print(citing_books( publisher="Four Corners", publishing_year="2021",
                    DOI="https://github.com/Mach-2/HtN2021", fn1="Johann", mn1="Alejandro", ln1="Maldonado"), "\n")
 
 print("Tests for multiple authors:")
