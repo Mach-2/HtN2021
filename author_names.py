@@ -28,7 +28,7 @@ def author_names(**names):
                     minitial = names[mn][0:1]
                     name = names[ln] + ", " + finitial + ". " + minitial + "."
             else:
-                name = names[ln] + "."
+                name = names[ln]
             authors_list += name
         else:  # There are no names passed as arguments
             return False
@@ -87,7 +87,7 @@ def author_names(**names):
                     minitial = names[mn][0:1]
                     name = names[ln] + ", " + finitial + ". " + minitial + "."
             else:
-                name = names[ln] + "."
+                name = names[ln]
             # Add the name to the list
             authors_list += name
     else:  # There were no authors names entered
