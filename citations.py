@@ -1,3 +1,7 @@
+"""
+A function to create citations for Books or Ebooks. Different forms of the citation will be created depending on which parameters have arguments passed to them. Each citation is compliant with APA7. 
+"""
+
 import numpy as np
 from author_names import *
 
@@ -15,7 +19,7 @@ def citing_books(book_title=False, publisher=False, publishing_year=False,
         else:
             return "Not enough information to generate a citation"
     # Date and title are missing    
-    elif (publishing_year == False and book_title == False):
+    elif publishing_year == False and book_title == False:
         if alternate_description:
             reference = authors_list + ". (n.d.). [" + alternate_description + "]. " + publisher
         else:
@@ -42,4 +46,6 @@ def citing_books(book_title=False, publisher=False, publishing_year=False,
     if DOI:
         reference = reference + " " + DOI
     return reference
+
+
 
