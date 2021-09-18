@@ -1,5 +1,3 @@
-""" A series of tests to evaluate that the output for different citations formats is as expected"""
-
 import numpy as np
 from author_names import *
 from citations import *
