@@ -55,7 +55,8 @@ def author_names(**names):
                     authors_list += name + ", "
             else:
                 break
-        # More than twenty authors
+
+    # More than twenty authors
     elif num_authors > 20:
         # Add first 19 names
         for auth_index in range(1, 20):
