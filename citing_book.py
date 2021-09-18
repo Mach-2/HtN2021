@@ -1,59 +1,45 @@
-
 import numpy as np
+from author_names import *
 
 
-def citing_books(authors_first_name, authors_middle_name, authors_last_name, book_title, publisher, publishing_year,
-                 DOI, alternate_description):
+def citing_books(book_title=False, publisher=False, publishing_year=False,
+                 DOI=False, alternate_description=False, **names):
     # Author name should be LastName, first initial, middle initial 
-    if (authors_last_name):
-        if authors_first_name:
-            first_initial = authors_first_name[0:1]
-            final_author_name = authors_last_name + ", " + first_initial + "."
-        if authors_middle_name:
-            middle_initial = authors_middle_name[0:1]
-            final_author_name = authors_last_name + ", " + first_initial + ". " + middle_initial + "."
-        else:
-            final_author_name = authors_last_name
+    authors_list = author_names(**names)
 
     # Begin generating final citation
     # Author, date, and title missing
-    if (authors_last_name == np.nan and publishing_year == np.nan and book_title == np.nan):
+    if authors_list == False and publishing_year == False and book_title == False:
         if alternate_description:
             reference = "[" + alternate_description + "]. (n.d.), " + publisher
         else:
             return "Not enough information to generate a citation"
     # Date and title are missing    
-    elif (publishing_year == np.nan and book_title == np.nan):
+    elif (publishing_year == False and book_title == False):
         if alternate_description:
-            reference = final_author_name + ". (n.d.). [" + alternate_description + "]. " + publisher
+            reference = authors_list + ". (n.d.). [" + alternate_description + "]. " + publisher
         else:
             return "Not enough information to generate a citation"
             # Author and date are missing
-    elif (authors_last_name == np.nan and publishing_year == np.nan):
+    elif (authors_list == False and publishing_year == False):
         reference = book_title + ". (n.d.). " + publisher
         # Source is missing
-    elif (publisher == np.nan):
+    elif (publisher == False):
         return "Not enough information to generate a citation"
     # Title is missing 
-    elif (book_title == np.nan):
-        reference = final_author_name + ".(" + publishing_year + "). [" + alternate_description + "]. " + publisher
+    elif (book_title == False):
+        reference = authors_list + ".(" + publishing_year + "). [" + alternate_description + "]. " + publisher
     # Date is missing
-    elif (publishing_year == np.nan):
-        reference = final_author_name + ". (n.d.). " + book_title + ". " + publisher + "."
+    elif (publishing_year == False):
+        reference = authors_list+ " (n.d.). " + book_title + ". " + publisher + "."
     # Author is missing
-    elif (authors_last_name == np.nan):
+    elif authors_list == False:
         reference = book_title + ". (" + publishing_year + "). " + publisher + "."
-
     # Final reference if all info present
     else:
-        reference = final_author_name + " (" + publishing_year + ")." + book_title + ". " + publisher + ". "
-
-    # DOI, optional 
-    reference = reference + DOI
-
+        reference = authors_list + " (" + publishing_year + "). " + book_title + ". " + publisher + "."
+    # DOI, optional
+    if DOI:
+        reference = reference + " " + DOI
     return reference
 
-
-print(citing_books(authors_first_name="Johann", authors_middle_name="Alejandro", authors_last_name="Maldonado",
-                   book_title="bilal", publisher="Pearson", publishing_year="2011", DOI="rashid",
-                   alternate_description="rashid"))
