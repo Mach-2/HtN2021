@@ -1,3 +1,10 @@
+"""
+A helper function designed to enable our program to accept a variable number of author names. Names must be identified with the following abbreviations: fn (first name), mn (middle name), ln (last name). 
+Names are passed to the function in order from first author to last author, in the following form:
+author_names(fn1 = '', mn1 = '', ln1 = '', fn2 = '', ln2 = '') 
+Middle and / or first names can be omitted. Last names cannot be omitted. If no names are passed to the argument, the value False will be returned.
+"""
+
 def author_names(**names):
     # Set up variables
     authors_list = ''
@@ -48,8 +55,7 @@ def author_names(**names):
                     authors_list += name + ", "
             else:
                 break
-
-    # More than twenty authors
+        # More than twenty authors
     elif num_authors > 20:
         # Add first 19 names
         for auth_index in range(1, 20):
@@ -87,58 +93,3 @@ def author_names(**names):
     else:  # There were no authors names entered
         return False
     return authors_list
-
-
-# print("Test for no authors:")
-# reference = author_names()
-# print(reference)
-#
-# print("Test for one author:")
-# reference = author_names(fn1="Madison", mn1="Eleanor", ln1="Chapel")
-# print(reference)
-#
-# print("Test for two authors:")
-# reference = author_names(fn1="Madison", mn1="Eleanor", ln1="Chapel",
-#                          fn2="Bilal", ln2="Rashid")
-#
-# print(reference)
-#
-# print("Test for three to twenty authors:")
-# reference = author_names(fn1="Madison", mn1="Eleanor", ln1="Chapel",
-#                          fn2="Johann", mn2="Alejandro", ln2="Maldonado",
-#                          fn3="Bilal", ln3="Rashid")
-#
-# print(reference)
-#
-# reference = author_names(fn1="Madison", mn1="Eleanor", ln1="Chapel",
-#                          fn2="Johann", mn2="Alejandro", ln2="Maldonado",
-#                          fn3="Bilal", ln3="Rashid", ln4="Oh", fn4="Sumin")
-#
-# print(reference)
-#
-# # print("Test for more than twenty authors:")
-# reference = author_names(fn1="Madison", mn1="Eleanor", ln1="Chapel",
-#                          fn2="Johann", mn2="Alejandro", ln2="Maldonado",
-#                          fn3="Bilal", ln3="Rashid", ln4="Oh", fn4="Sumin",
-#                          fn5="Hack", mn5="The", ln5="North", fn6="Madison", mn6="Eleanor", ln6="Chapel",
-#                          fn7="Johann", mn7="Alejandro", ln7="Maldonado",
-#                          fn8="Bilal", ln8="Rashid", ln9="Oh", fn9="Sumin",
-#                          fn10="Hack", mn10="The", ln10="North", fn11="Madison", mn11="Eleanor", ln11="Chapel",
-#                          fn12="Johann", mn12="Alejandro", ln12="Maldonado",
-#                          fn13="Bilal", ln13="Rashid", ln14="Oh", fn14="Sumin",
-#                          fn15="Hack", mn15="The", ln15="North", fn16="Madison", mn16="Eleanor", ln16="Chapel",
-#                          fn17="Johann", mn17="Alejandro", ln17="Maldonado",
-#                          fn18="Bilal", ln18="Rashid", ln19="Oh", fn19="Sumin",
-#                          fn20="Hack", mn20="The", ln20="North", ln21="Last", mn21="Middle", fn21="First")
-
-# print(reference)
-#
-# # if (authors_last_name):
-# #    if authors_first_name:
-# #        first_initial = authors_first_name[0:1]
-# #        final_author_name = authors_last_name + ", " + first_initial + "."
-# #    if authors_middle_name:
-# #        middle_initial = authors_middle_name[0:1]
-# #        final_author_name = authors_last_name + ", " + first_initial + ". " + middle_initial + "."
-# #    else:
-# #        final_author_name = authors_last_name + "."
