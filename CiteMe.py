@@ -283,8 +283,7 @@ while citations:
         if more == 'n':
             citations = False
         ### End of Journal Citation
-    else:
-        print("Unaccepted input. Please select a reference type from the list.")
+
 
 
 # Print the entire reference list!
