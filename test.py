@@ -1,6 +1,7 @@
 import numpy as np
 from author_names import *
 from citations import *
+
 print("          Testing book citations", "\n", "#########################################")
 print("All info present:")
 print(citing_books(book_title="HacktheNorth 2021", publisher="Four Corners", publishing_year="2021",
@@ -38,7 +39,7 @@ print(citing_books(book_title="HacktheNorth 2021", publisher="Four Corners", pub
                    DOI="https://github.com/Mach-2/HtN2021", fn1="Johann", mn1="Alejandro", ln1="Maldonado"), "\n")
 
 print("Missing alternate description:")
-print(citing_books( publisher="Four Corners", publishing_year="2021",
+print(citing_books(publisher="Four Corners", publishing_year="2021",
                    DOI="https://github.com/Mach-2/HtN2021", fn1="Johann", mn1="Alejandro", ln1="Maldonado"), "\n")
 
 print("Tests for multiple authors:")
@@ -67,47 +68,149 @@ print(citing_books(book_title="HacktheNorth 2021", publisher="Four Corners", pub
 ### Tests for web page citation ###
 print("        Testing web page citations", "\n", "#########################################")
 print("All info present:")
-print(citing_webpage(publishing_year="2021", publishing_month="September", publishing_day="18", title_of_webpage="How to Win a Hackathon! (or at least have fun)",
-                     webpage_name="Four Corners", url="https://github.com/Mach-2/HtN2021", fn1="Madison", mn1="Eleanor", ln1="Chapel",
-                   fn2="Johann", mn2="Alejandro", ln2="Maldonado", fn3="Bilal", ln3="Rashid", ln4="Oh", fn4="Sumin"))
+print(citing_webpage(publishing_year="2021", publishing_month="September", publishing_day="18",
+                     title_of_webpage="How to Win a Hackathon! (or at least have fun)",
+                     webpage_name="Four Corners", url="https://github.com/Mach-2/HtN2021", fn1="Madison", mn1="Eleanor",
+                     ln1="Chapel",
+                     fn2="Johann", mn2="Alejandro", ln2="Maldonado", fn3="Bilal", ln3="Rashid", ln4="Oh", fn4="Sumin"))
 
 print("Missing date components:")
 print("    - Month: ")
-print(citing_webpage(publishing_year="2021", publishing_day="18", title_of_webpage="How to Win a Hackathon! (or at least have fun)",
-                     webpage_name="Four Corners", url="https://github.com/Mach-2/HtN2021", fn1="Madison", mn1="Eleanor", ln1="Chapel",
-                   fn2="Johann", mn2="Alejandro", ln2="Maldonado", fn3="Bilal", ln3="Rashid", ln4="Oh", fn4="Sumin"),"\n")
+print(citing_webpage(publishing_year="2021", publishing_day="18",
+                     title_of_webpage="How to Win a Hackathon! (or at least have fun)",
+                     webpage_name="Four Corners", url="https://github.com/Mach-2/HtN2021", fn1="Madison", mn1="Eleanor",
+                     ln1="Chapel",
+                     fn2="Johann", mn2="Alejandro", ln2="Maldonado", fn3="Bilal", ln3="Rashid", ln4="Oh", fn4="Sumin"),
+      "\n")
 print("    - Day: ")
-print(citing_webpage(publishing_year="2021", publishing_month="September", title_of_webpage="How to Win a Hackathon! (or at least have fun)",
-                     webpage_name="Four Corners", url="https://github.com/Mach-2/HtN2021", fn1="Madison", mn1="Eleanor", ln1="Chapel",
-                   fn2="Johann", mn2="Alejandro", ln2="Maldonado", fn3="Bilal", ln3="Rashid", ln4="Oh", fn4="Sumin"),"\n")
+print(citing_webpage(publishing_year="2021", publishing_month="September",
+                     title_of_webpage="How to Win a Hackathon! (or at least have fun)",
+                     webpage_name="Four Corners", url="https://github.com/Mach-2/HtN2021", fn1="Madison", mn1="Eleanor",
+                     ln1="Chapel",
+                     fn2="Johann", mn2="Alejandro", ln2="Maldonado", fn3="Bilal", ln3="Rashid", ln4="Oh", fn4="Sumin"),
+      "\n")
 
 print("    - Year: ")
 print(citing_webpage(publishing_month="September", publishing_day="18",
-                     webpage_name="Four Corners", url="https://github.com/Mach-2/HtN2021", fn1="Madison", mn1="Eleanor", ln1="Chapel",
-                   fn2="Johann", mn2="Alejandro", ln2="Maldonado", fn3="Bilal", ln3="Rashid", ln4="Oh", fn4="Sumin"),"\n")
+                     webpage_name="Four Corners", url="https://github.com/Mach-2/HtN2021", fn1="Madison", mn1="Eleanor",
+                     ln1="Chapel",
+                     fn2="Johann", mn2="Alejandro", ln2="Maldonado", fn3="Bilal", ln3="Rashid", ln4="Oh", fn4="Sumin"),
+      "\n")
 
 print("Missing title:")
 print(citing_webpage(publishing_year="2021", publishing_month="September", publishing_day="18",
-                     webpage_name="Four Corners", url="https://github.com/Mach-2/HtN2021", alternate_description="An alternate description for the source", fn1="Madison", mn1="Eleanor", ln1="Chapel",
-                   fn2="Johann", mn2="Alejandro", ln2="Maldonado", fn3="Bilal", ln3="Rashid", ln4="Oh", fn4="Sumin"),"\n")
+                     webpage_name="Four Corners", url="https://github.com/Mach-2/HtN2021",
+                     alternate_description="An alternate description for the source", fn1="Madison", mn1="Eleanor",
+                     ln1="Chapel",
+                     fn2="Johann", mn2="Alejandro", ln2="Maldonado", fn3="Bilal", ln3="Rashid", ln4="Oh", fn4="Sumin"),
+      "\n")
 
 print("Missing webpage name:")
 print(citing_webpage(publishing_year="2021", publishing_month="September", publishing_day="18",
-                     title_of_webpage="How to Win a Hackathon! (or at least have fun)", url="https://github.com/Mach-2/HtN2021", alternate_description="An alternate description for the source", fn1="Madison", mn1="Eleanor", ln1="Chapel",
-                   fn2="Johann", mn2="Alejandro", ln2="Maldonado", fn3="Bilal", ln3="Rashid", ln4="Oh", fn4="Sumin"),"\n")
+                     title_of_webpage="How to Win a Hackathon! (or at least have fun)",
+                     url="https://github.com/Mach-2/HtN2021",
+                     alternate_description="An alternate description for the source", fn1="Madison", mn1="Eleanor",
+                     ln1="Chapel",
+                     fn2="Johann", mn2="Alejandro", ln2="Maldonado", fn3="Bilal", ln3="Rashid", ln4="Oh", fn4="Sumin"),
+      "\n")
 
 print("Missing url:")
-print(citing_webpage(publishing_year="2021", publishing_month="September", publishing_day="18", title_of_webpage="How to Win a Hackathon! (or at least have fun)",
+print(citing_webpage(publishing_year="2021", publishing_month="September", publishing_day="18",
+                     title_of_webpage="How to Win a Hackathon! (or at least have fun)",
                      webpage_name="Four Corners", fn1="Madison", mn1="Eleanor", ln1="Chapel",
-                   fn2="Johann", mn2="Alejandro", ln2="Maldonado", fn3="Bilal", ln3="Rashid", ln4="Oh", fn4="Sumin"),"\n")
+                     fn2="Johann", mn2="Alejandro", ln2="Maldonado", fn3="Bilal", ln3="Rashid", ln4="Oh", fn4="Sumin"),
+      "\n")
 
 print("Author and Webpage name the same:")
-print(citing_webpage(publishing_year="2021", publishing_month="September", publishing_day="18", title_of_webpage="How to Win a Hackathon! (or at least have fun)",
-                     webpage_name="Four Corners", url="https://github.com/Mach-2/HtN2021", ln1="Four Corners"),"\n")
+print(citing_webpage(publishing_year="2021", publishing_month="September", publishing_day="18",
+                     title_of_webpage="How to Win a Hackathon! (or at least have fun)",
+                     webpage_name="Four Corners", url="https://github.com/Mach-2/HtN2021", ln1="Four Corners"), "\n")
 
 print("Missing date and title:")
-print(citing_webpage(webpage_name="Four Corners", url="https://github.com/Mach-2/HtN2021", alternate_description="An alternate description for the source", fn1="Madison", mn1="Eleanor", ln1="Chapel",
-                   fn2="Johann", mn2="Alejandro", ln2="Maldonado", fn3="Bilal", ln3="Rashid", ln4="Oh", fn4="Sumin"),"\n")
+print(citing_webpage(webpage_name="Four Corners", url="https://github.com/Mach-2/HtN2021",
+                     alternate_description="An alternate description for the source", fn1="Madison", mn1="Eleanor",
+                     ln1="Chapel",
+                     fn2="Johann", mn2="Alejandro", ln2="Maldonado", fn3="Bilal", ln3="Rashid", ln4="Oh", fn4="Sumin"),
+      "\n")
 
 print("Missing author, date, and title:")
-print(citing_webpage(webpage_name="Four Corners", url="https://github.com/Mach-2/HtN2021", alternate_description="An alternate description for the source"),"\n")
+print(citing_webpage(webpage_name="Four Corners", url="https://github.com/Mach-2/HtN2021",
+                     alternate_description="An alternate description for the source"), "\n")
+
+### Tests for journal article citation ###
+print("        Testing journal citations", "\n", "#########################################\n")
+print("All info present:")
+print(citing_journal(publishing_year="2021", article_title="How to Win at Hackathons",
+                     journal_name="Hack the North Methods and Reviews", page_start="100", page_end="150", volume="6",
+                     issue="12", alt_description="An alternate description", DOI="https://github.com/Mach-2/HtN2021/",
+                     fn1="Madison", mn1="Eleanor", ln1="Chapel", fn2="Johann", mn2="Alejandro", ln2="Maldonado",
+                     fn3="Bilal", ln3="Rashid", ln4="Oh", fn4="Sumin"), "\n")
+
+print("Missing year:")
+print(citing_journal(article_title="How to Win at Hackathons",
+                     journal_name="Hack the North Methods and Reviews", page_start="100", page_end="150", volume="6",
+                     issue="12", alt_description="An alternate description", DOI="https://github.com/Mach-2/HtN2021/",
+                     fn1="Madison", mn1="Eleanor", ln1="Chapel", fn2="Johann", mn2="Alejandro", ln2="Maldonado",
+                     fn3="Bilal", ln3="Rashid", ln4="Oh", fn4="Sumin"), "\n")
+
+print("Missing title:")
+print(citing_journal(publishing_year="2021",
+                     journal_name="Hack the North Methods and Reviews", page_start="100", page_end="150", volume="6",
+                     issue="12", alt_description="An alternate description", DOI="https://github.com/Mach-2/HtN2021/",
+                     fn1="Madison", mn1="Eleanor", ln1="Chapel", fn2="Johann", mn2="Alejandro", ln2="Maldonado",
+                     fn3="Bilal", ln3="Rashid", ln4="Oh", fn4="Sumin"), "\n")
+
+print("Missing journal:")
+print(citing_journal(publishing_year="2021", article_title="How to Win at Hackathons",
+                     page_start="100", page_end="150", volume="6",
+                     issue="12", alt_description="An alternate description", DOI="https://github.com/Mach-2/HtN2021/",
+                     fn1="Madison", mn1="Eleanor", ln1="Chapel", fn2="Johann", mn2="Alejandro", ln2="Maldonado",
+                     fn3="Bilal", ln3="Rashid", ln4="Oh", fn4="Sumin"),"\n")
+
+print("Missing page start:")
+print(citing_journal(publishing_year="2021", article_title="How to Win at Hackathons",
+                     journal_name="Hack the North Methods and Reviews", page_end="150", volume="6",
+                     issue="12", alt_description="An alternate description", DOI="https://github.com/Mach-2/HtN2021/",
+                     fn1="Madison", mn1="Eleanor", ln1="Chapel", fn2="Johann", mn2="Alejandro", ln2="Maldonado",
+                     fn3="Bilal", ln3="Rashid", ln4="Oh", fn4="Sumin"),"\n")
+
+print("Missing page end:")
+print(citing_journal(publishing_year="2021", article_title="How to Win at Hackathons",
+                     journal_name="Hack the North Methods and Reviews", page_start="100", volume="6",
+                     issue="12", alt_description="An alternate description", DOI="https://github.com/Mach-2/HtN2021/",
+                     fn1="Madison", mn1="Eleanor", ln1="Chapel", fn2="Johann", mn2="Alejandro", ln2="Maldonado",
+                     fn3="Bilal", ln3="Rashid", ln4="Oh", fn4="Sumin"),"\n")
+
+print("Missing volume:")
+print(citing_journal(publishing_year="2021", article_title="How to Win at Hackathons",
+                     journal_name="Hack the North Methods and Reviews", page_start="100", page_end="150",
+                     issue="12", alt_description="An alternate description", DOI="https://github.com/Mach-2/HtN2021/",
+                     fn1="Madison", mn1="Eleanor", ln1="Chapel", fn2="Johann", mn2="Alejandro", ln2="Maldonado",
+                     fn3="Bilal", ln3="Rashid", ln4="Oh", fn4="Sumin"),"\n")
+
+print("Missing issue:")
+print(citing_journal(publishing_year="2021", article_title="How to Win at Hackathons",
+                     journal_name="Hack the North Methods and Reviews", page_start="100", page_end="150", volume="6",
+                     alt_description="An alternate description", DOI="https://github.com/Mach-2/HtN2021/",
+                     fn1="Madison", mn1="Eleanor", ln1="Chapel", fn2="Johann", mn2="Alejandro", ln2="Maldonado",
+                     fn3="Bilal", ln3="Rashid", ln4="Oh", fn4="Sumin"),"\n")
+
+print("Missing alt description:")
+print(citing_journal(publishing_year="2021", article_title="How to Win at Hackathons",
+                     journal_name="Hack the North Methods and Reviews", page_start="100", page_end="150", volume="6",
+                     issue="12", DOI="https://github.com/Mach-2/HtN2021/",
+                     fn1="Madison", mn1="Eleanor", ln1="Chapel", fn2="Johann", mn2="Alejandro", ln2="Maldonado",
+                     fn3="Bilal", ln3="Rashid", ln4="Oh", fn4="Sumin"),"\n")
+
+print("Missing DOI: ")
+print(citing_journal(publishing_year="2021", article_title="How to Win at Hackathons",
+                     journal_name="Hack the North Methods and Reviews", page_start="100", page_end="150", volume="6",
+                     issue="12", alt_description="An alternate description",
+                     fn1="Madison", mn1="Eleanor", ln1="Chapel", fn2="Johann", mn2="Alejandro", ln2="Maldonado",
+                     fn3="Bilal", ln3="Rashid", ln4="Oh", fn4="Sumin"),"\n")
+
+print("Missing year and title:")
+print(citing_journal(journal_name="Hack the North Methods and Reviews", page_start="100", page_end="150", volume="6",
+                     issue="12", alt_description="An alternate description", DOI="https://github.com/Mach-2/HtN2021/",
+                     fn1="Madison", mn1="Eleanor", ln1="Chapel", fn2="Johann", mn2="Alejandro", ln2="Maldonado",
+                     fn3="Bilal", ln3="Rashid", ln4="Oh", fn4="Sumin"),"\n")

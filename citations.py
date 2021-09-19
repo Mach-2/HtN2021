@@ -53,7 +53,7 @@ def citing_webpage(publishing_year=False, publishing_month=False, publishing_day
     if webpage_name is False:  # Check for source before evaluating if source and author are the same.
         return "Not enough information to generate a citation. Please provide a website name."
     # If author and site name are the same, omit the site name from the citation
-    if authors_list == webpage_name:
+    if str(authors_list).lower() == str(webpage_name).lower():
         webpage_name = False
         authors_list += "."
 
@@ -92,4 +92,63 @@ def citing_webpage(publishing_year=False, publishing_month=False, publishing_day
                 reference = "[" + alternate_description + "]. " + pubdate + ". " + webpage_name + ". " + url
             else:
                 return "Not enough information to generate a citation. Please provide a description in liu of a title."
+    return reference
+
+
+def citing_journal(publishing_year=False, article_title=False, journal_name=False, page_start=False, page_end=False,
+                   volume=False, issue=False, alt_description=False, DOI=False, **names):
+    # Author name should be LastName, first initial, middle initial
+    authors_list = author_names(**names)
+
+    # Check for required values
+    if journal_name is False:
+        return "Not enough information to generate a citation. Please provide a website name."
+
+    if publishing_year is False:
+        publishing_year = "n.d."
+
+    # Create page-range
+    page_range = False
+    if page_start:
+        if page_end:
+            page_range = page_start + "-" + page_end
+
+    # Create journal name, volume(issue)
+    if journal_name:
+        if volume:
+            if issue:
+                if page_range:
+                    journal = journal_name + ", " + volume + "(" + issue + "), " + page_range
+                else:  # no page range
+                    journal = journal_name + ", " + volume + "(" + issue + ")"
+            else:  # no issue
+                journal = journal_name + ", " + volume
+        else:  # no volume
+            journal = journal_name
+    else:
+        return "Not enough information to generate a citation. Please provide publisher information."
+        # Check for date or n.d.
+    if publishing_year is False:
+        publishing_year = "n.d."
+
+    # Begin generating final citation
+    if authors_list:
+        if article_title:  # author and title and source are present
+            reference = authors_list + " (" + publishing_year + "). " + article_title + ". " + journal + "."
+        else:  # Title missing
+            if alt_description:
+                reference = authors_list + " (" + publishing_year + "). [" + alt_description + "]. " + journal + "."
+            else:
+                return "Not enough information to generate a citation. Please provide a description in liu of a title."
+    else:  # authors missing
+        if article_title:  # author missing, title present
+            reference = article_title + ". (" + publishing_year + "). " + journal + "."
+        else:  # author and title missing
+            if alt_description:
+                reference = "[" + alt_description + "]. (" + publishing_year + "). " + journal + "."
+            else:
+                return "Not enough information to generate a citation. Please provide a description in liu of a title."
+    # Add optional DOI
+    if DOI:
+        reference = reference + " " + DOI
     return reference
